@@ -3,13 +3,8 @@
     <!--=============================== Profile Details ===============================-->
     <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
         <div class="profile-thumb mt-3 mb-4">
-            <img class="rounded-circle" src="{{ asset('frontend_assets/images/profile-thumb.jpg') }}"
+            <img class="rounded-circle" src="{{ userProfilePicture(auth()->id(), auth()->user()->picture ?? null, 100) }}"
                  alt="{{ auth()->user()->first_name }}">
-            <div class="profile-thumb-edit custom-file bg-primary text-white" data-toggle="tooltip"
-                 title="Change Profile Picture">
-                <i class="fas fa-camera position-absolute"></i>
-                <input type="file" class="custom-file-input" id="customFile">
-            </div>
         </div>
         <p class="text-3 font-weight-500 mb-2">
             {{ trans('lang.hello') }}, {{ auth()->user()->first_name ." ". auth()->user()->last_name }}
@@ -33,8 +28,8 @@
         <p class="mb-2 text-muted opacity-8">{{ trans('lang.balance') }}</p>
         <hr class="mx-n3">
         <div class="d-flex">
-            <a href="{{ route('user.withdraw') }}" class="btn-link mr-auto">{{ trans('lang.withdraw') }}</a>
-            <a href="{{ route('user.deposit') }}" class="btn-link ml-auto">{{ trans('lang.deposit') }}</a>
+            <a href="{{ route('withdraw.index') }}" class="btn-link mr-auto">{{ trans('lang.withdraw') }}</a>
+            <a href="{{ route('deposit.index') }}" class="btn-link ml-auto">{{ trans('lang.deposit') }}</a>
         </div>
     </div>
     <!--=============================== Available Balance End ===============================-->

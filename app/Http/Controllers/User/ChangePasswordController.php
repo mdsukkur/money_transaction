@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordController extends Controller
 {
-    public function changePassword(Request $request)
+    public function index()
+    {
+        return view('frontend.pages.change_password.index');
+    }
+
+    public function updatePassword(Request $request)
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],

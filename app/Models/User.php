@@ -34,21 +34,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -62,5 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setBirthDateAttribute($value)
     {
         $this->attributes['birth_date'] = date('Y-m-d', strtotime($value));
+    }
+
+    public function bankInformations()
+    {
+        return $this->hasMany(BankInformation::class, 'user_id');
     }
 }

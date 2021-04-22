@@ -38,5 +38,11 @@ return [
     'bank_info' => 'Bank Accounts',
     'bank_info_purpose' => '(for withdrawal)',
     'profile_update_message' => 'Profile Successfully Updated.',
+    'bank_add_message' => 'Bank Information Successfully Added.',
+    'bank_del_message' => 'Bank Information Successfully Remove.',
     'password_update_message' => 'Password Successfully Changed.',
+    'profile_info' => 'Profile Information',
+    'profile_info_msg' => "Update your account's information and email address.",
+    'update_password' => "Update Password",
+    'update_password_msg' => "Ensure your account is using a long, random password to stay secure.",
 ];

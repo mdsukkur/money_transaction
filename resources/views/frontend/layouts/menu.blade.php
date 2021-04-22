@@ -10,16 +10,16 @@
                 <a href="{{ route('user.dashboard') }}">{{ trans('lang.dashboard') }}</a>
             </li>
 
-            <li class="{{ (Route::currentRouteName() == 'user.deposit') ? 'active' : '' }}">
-                <a href="{{ route('user.deposit') }}">{{ trans('lang.deposit') }}</a>
+            <li class="{{ (Route::currentRouteName() == 'deposit.index') ? 'active' : '' }}">
+                <a href="{{ route('deposit.index') }}">{{ trans('lang.deposit') }}</a>
             </li>
 
-            <li class="{{ (Route::currentRouteName() == 'user.transfer') ? 'active' : '' }}">
-                <a href="{{ route('user.transfer') }}">{{ trans('lang.transfer') }}</a>
+            <li class="{{ (Route::currentRouteName() == 'transfer.index') ? 'active' : '' }}">
+                <a href="{{ route('transfer.index') }}">{{ trans('lang.transfer') }}</a>
             </li>
 
-            <li class="{{ (Route::currentRouteName() == 'user.withdraw') ? 'active' : '' }}">
-                <a href="{{ route('user.withdraw') }}">{{ trans('lang.withdraw') }}</a>
+            <li class="{{ (Route::currentRouteName() == 'withdraw.index') ? 'active' : '' }}">
+                <a href="{{ route('withdraw.index') }}">{{ trans('lang.withdraw') }}</a>
             </li>
 
             <li class="{{ (Route::currentRouteName() == 'user.transactions') ? 'active' : '' }}">

@@ -19,6 +19,7 @@ class UserRequest extends FormRequest
             'last_name' => 'string|max:255',
             'email' => 'sometimes|required|email|unique:users,email,' . auth()->id(),
             'phone' => 'sometimes|required|string|max:255,phone,' . auth()->id(),
+            'picture' => 'sometimes|required|image',
             'birth_date' => 'string|max:255',
             'address' => 'string|max:255',
             'city' => 'string|max:255',

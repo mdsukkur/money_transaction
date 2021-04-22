@@ -3,17 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ChangePasswordController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\User\BankInformation\BankInformationController;
+use App\Http\Controllers\Deposit\DepositController;
+use App\Http\Controllers\Withdraw\WithdrawController;
+use App\Http\Controllers\Transfer\TransferController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,18 +17,25 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::view('dashboard', 'frontend.pages.dashboard.index')->name('user.dashboard');
 
     /*================================== User ==================================*/
+    Route::get('profile', [UserController::class, 'profilePage'])->name('user.profile');
+    Route::get('edit-profile', [UserController::class, 'editProfilePage'])->name('user.edit.profile');
     Route::post('profile', [UserController::class, 'profileUpdate'])->name('user.profile.request');
-    Route::post('change-password', [ChangePasswordController::class, 'changePassword'])->name('user.password.update');
-    Route::view('profile', 'frontend.pages.profile.index')->name('user.profile');
+
+    /*================================== Change Password ==================================*/
+    Route::get('change-password', [ChangePasswordController::class, 'index'])->name('user.password');
+    Route::post('change-password', [ChangePasswordController::class, 'updatePassword'])->name('user.password.update');
+
+    /*================================== User ==================================*/
+    Route::resource('bankinfo', BankInformationController::class)->only(['store', 'show', 'destroy']);
 
     /*================================== Deposit ==================================*/
-    Route::view('deposit', 'frontend.pages.deposit.index')->name('user.deposit');
+    Route::resource('deposit', DepositController::class)->only(['index', 'store']);
 
     /*================================== Withdraw ==================================*/
-    Route::view('withdraw', 'frontend.pages.withdraw.index')->name('user.withdraw');
+    Route::resource('withdraw', WithdrawController::class)->only(['index', 'store']);
 
     /*================================== Transfer ==================================*/
-    Route::view('transfer', 'frontend.pages.transfer.index')->name('user.transfer');
+    Route::resource('transfer', TransferController::class)->only(['index', 'store']);
 
     /*================================== Transactions ==================================*/
     Route::view('transactions', 'frontend.pages.transactions.index')->name('user.transactions');

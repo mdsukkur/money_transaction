@@ -31,9 +31,8 @@
                         @auth
                             <li class="dropdown profile ml-2">
                                 <a class="px-0 dropdown-toggle" href="#">
-                                    <img class="rounded-circle"
-                                         src="{{ asset('frontend_assets/images/profile-thumb-sm.jpg') }}"
-                                         alt="{{ auth()->user()->first_name }}">
+                                    <img class="rounded-circle" alt="{{ auth()->user()->first_name }}"
+                                         src="{{ userProfilePicture(auth()->id(), auth()->user()->picture ?? null, 40) }}">
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="text-center text-3 py-2">
@@ -44,6 +43,11 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ route('user.profile') }}">
                                             <i class="fas fa-user"></i>{{ trans('lang.my_profile') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('user.password') }}">
+                                            <i class="fas fa-lock"></i>{{ trans('lang.change_password') }}
                                         </a>
                                     </li>
                                     <li class="dropdown-divider mx-n3"></li>

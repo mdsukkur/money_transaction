@@ -21,7 +21,7 @@
 
     <section class="section">
         <div class="container text-center">
-            <h2 class="text-25 mb-0">419</h2>
+            <h2 class="text-25 mb-0">500</h2>
             <h3 class="text-6 mb-3">Oops, something went wrong!.</h3>
             <p class="text-3 text-muted">Try to refresh this page or feel free to contact us if the problem
                 persists.</p>
